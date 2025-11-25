@@ -19,7 +19,7 @@ An AI-powered agent that empowers Account Managers (AMs) to query distributed ac
 
 1.  **Clone the repository**:
     ```bash
-    git clone <repo-url>
+    git clone https://github.com/tony-kipkemboi/EPS_Agent.git
     cd EPS_MCP
     ```
 
