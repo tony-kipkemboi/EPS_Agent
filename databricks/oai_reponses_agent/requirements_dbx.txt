@@ -1,0 +1,17 @@
+# EPS Agent - Databricks Deployment Requirements
+# Install in Databricks notebook: %pip install -r requirements_dbx.txt
+
+# Core Databricks packages
+databricks-agents>=1.2.0
+databricks-openai>=0.1.0
+databricks-sdk>=0.20.0
+
+# MLflow for agent framework
+mlflow>=3.1.0
+
+# HTTP client for Glean API
+httpx>=0.25.0
+
+# Retry logic
+backoff>=2.2.0
+
