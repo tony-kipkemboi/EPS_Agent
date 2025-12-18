@@ -1,0 +1,19 @@
+# Ruff configuration for EPS Agent
+
+# Files to exclude from linting
+exclude = [
+    "deploy_notebook.py",  # Databricks notebook with dbutils globals
+]
+
+[lint]
+# Rules to ignore globally
+ignore = [
+    "E402",   # Module level import not at top of file (expected in notebooks)
+    "F541",   # f-string without placeholders (style preference)
+]
+
+[lint.per-file-ignores]
+# Tool lab is a testing/exploration file - be lenient
+"tool_lab.py" = ["F401", "F841"]
+# CLI is optional local testing tool
+"eps_agent_cli.py" = ["F401"]

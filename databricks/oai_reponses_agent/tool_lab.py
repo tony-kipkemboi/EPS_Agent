@@ -869,7 +869,8 @@ def test_nlp_vs_filter_comparison(account: str = "AdventHealth") -> None:
         print("✅ Same result count")
 
 
-if __name__ == "__main__":
+def run_all_tests():
+    """Run the standard test suite."""
     print("="*60)
     print("EPS Tool Lab - Test and Fine-tune Glean Tools")
     print("="*60)
@@ -877,7 +878,7 @@ if __name__ == "__main__":
     # Check credentials
     if not GLEAN_API_TOKEN:
         print("❌ GLEAN_API_TOKEN not set. Add to .env file.")
-        exit(1)
+        return
     
     print(f"✅ Using Glean instance: {GLEAN_INSTANCE}")
     
@@ -1134,12 +1135,20 @@ def test_gong_full_content():
 
 if __name__ == "__main__":
     import sys
+    
+    # Check credentials first
+    if not GLEAN_API_TOKEN:
+        print("❌ GLEAN_API_TOKEN not set. Add to .env file.")
+        exit(1)
+    
+    # Handle command-line arguments for specific tests
     if len(sys.argv) > 1:
         if sys.argv[1] == "gong":
             test_gong_transcript_length(sys.argv[2] if len(sys.argv) > 2 else "AdventHealth")
         elif sys.argv[1] == "gong-full":
             test_gong_full_content()
         else:
-            main()
+            print(f"Unknown argument: {sys.argv[1]}")
+            print("Usage: python tool_lab.py [gong|gong-full]")
     else:
-        main()
+        run_all_tests()
